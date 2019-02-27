@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoZXing.Views.CustomOverlayView"
+             Title="Escanear con custom overlay"
+             BackgroundColor="LightBlue">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Padding="10">
+            <Button 
+                Text="Escanear código" 
+                Command="{Binding ScannerCommand}" />
+
+            <Label 
+                Style="{StaticResource NormalLabel}"
+                Text="Resultado" />
+
+            <Label 
+                Style="{StaticResource ResultLabel}"
+                Text="{Binding BarcodeText}" />
+
+            <Label 
+                Style="{StaticResource NormalLabel}"
+                Text="Formato" />
+
+            <Label 
+                Style="{StaticResource ResultLabel}"
+                Text="{Binding BarcodeFormat}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

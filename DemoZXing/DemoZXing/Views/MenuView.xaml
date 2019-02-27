@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoZXing.Views.MenuView"
+             Title="Menú"
+             BackgroundColor="LightBlue">
+    <ContentPage.Content>
+        <Grid Margin="10" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button 
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Escanear (default)" 
+                Command="{Binding DefaultScannerCommand}" />
+
+            <Button 
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="Escanear con custom overlay" 
+                Command="{Binding CustomOverlayScannerCommand}" />
+
+            <Button 
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="Escanear continuamente" 
+                Command="{Binding ContinuousScannerCommand}" />
+
+            <Button 
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="Escanear con página personalizada" 
+                Command="{Binding CustomScannerPageCommand}" />
+
+            <Button 
+                Grid.Row="4"
+                Grid.Column="1"
+                Text="Generar código" 
+                Command="{Binding GenerateCodeCommand}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
