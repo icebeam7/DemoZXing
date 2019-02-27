@@ -1,9 +1,11 @@
 ﻿using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using DemoZXing.Helpers;
 
 using ZXing;
+using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
 
 using Xamarin.Forms;
@@ -64,7 +66,17 @@ namespace DemoZXing.ViewModels
             grid.Children.Add(buttonCancel);
             grid.Children.Add(buttonHelp);
 
-            var page = new ZXingScannerPage(customOverlay: grid)
+            var options = new MobileBarcodeScanningOptions();
+
+            options.PossibleFormats = new List<BarcodeFormat>()
+            {
+                ZXing.BarcodeFormat.EAN_8,
+                ZXing.BarcodeFormat.EAN_13,
+                ZXing.BarcodeFormat.AZTEC,
+                ZXing.BarcodeFormat.QR_CODE
+            };
+
+            var page = new ZXingScannerPage(options, grid)
             {
                 Title = "Demo ZXing",
             };

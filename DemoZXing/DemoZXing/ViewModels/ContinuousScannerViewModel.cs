@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
+using ZXing;
 using ZXing.Mobile;
 using ZXing.Net.Mobile.Forms;
 
@@ -24,6 +26,13 @@ namespace DemoZXing.ViewModels
         async Task ScanCode()
         {
             var options = new MobileBarcodeScanningOptions { DelayBetweenContinuousScans = 10000 };
+            options.PossibleFormats = new List<BarcodeFormat>()
+            {
+                ZXing.BarcodeFormat.EAN_8,
+                ZXing.BarcodeFormat.EAN_13,
+                ZXing.BarcodeFormat.AZTEC,
+                ZXing.BarcodeFormat.QR_CODE
+            };
 
             var overlay = new ZXingDefaultOverlay
             {
